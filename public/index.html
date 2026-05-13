@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>MoonWalk Music</title>
+</head>
+
+<body>
+
+  <div class="stage-lights">
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+  </div>
+
+  <div class="top-banner" id="top-banner">
+    <p id="greeting" class="top-banner-greeting"></p>
+    <a href="/cart.html" id="cart-banner" class="cart-banner-link">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-label">Cart</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="header-menu" aria-label="Main menu">
+      <a href="/login.html" id="login">Log in</a>
+      <a href="/signup.html" id="signup">Sign up</a>
+      <button class="main-btn" id="logout-btn">Log out</button>
+      <form role="search">
+        <label for="search-input" class="visually-hidden">Search albums</label>
+        <input type="text" placeholder="Search albums..." id="search-input" autocomplete="off">
+      </form>
+    </nav>
+  </div>
+
+  <header>
+    <a href="/" class="logo-link">
+      <div class="logo-mark">
+        <div class="hat-brim"></div>
+        <div class="hat-crown"></div>
+        <div class="hat-band"></div>
+      </div>
+    </a>
+    <div class="header-text">
+      <p class="pre-title">The King of Pop</p>
+      <h1>MoonWalk<br><span class="accent-word">Music</span></h1>
+      <p class="subhead">Every record. Every era. Every hit.</p>
+    </div>
+    <div class="header-sparkles" aria-hidden="true">
+      <span class="sparkle s1">✦</span>
+      <span class="sparkle s2">✦</span>
+      <span class="sparkle s3">✦</span>
+      <span class="sparkle s4">✦</span>
+      <span class="sparkle s5">✦</span>
+    </div>
+  </header>
+
+  <section class="genre-select-container">
+    <label for="genre-select">Browse by era</label>
+    <select id="genre-select">
+      <option value="">All Albums</option>
+    </select>
+  </section>
+
+  <main class="products" id="products-container"></main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MoonWalk Music</div>
+      <p class="footer-tagline">"Music has been my outlet, my gift to all of the lovers in this world."</p>
+      <p class="footer-copy">© MoonWalk Music</p>
+    </div>
+  </footer>
+
+  <script src="js/index.js" type="module"></script>
+  <script src="js/menu.js" type="module"></script>
+</body>
+
+</html>
