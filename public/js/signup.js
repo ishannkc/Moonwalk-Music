@@ -7,19 +7,31 @@ signupForm.addEventListener('submit', async (e)=>{
     const name = document.getElementById('signup-name').value.trim()
     const email = document.getElementById('signup-email').value.trim()
     const username = document.getElementById('signup-username').value.trim()
-    const password = document.getElementById('signup-password').value.trim()
+    const password = document.getElementById('signup-password').value
     const submitBtn = signupForm.querySelector('button')
 
     errorMessage.textContent = '' //clear old errors
     submitBtn.disabled = true
 
+    if (password.length < 8) {
+        errorMessage.textContent = 'Password must be at least 8 characters.'
+        submitBtn.disabled = false
+        return
+    }
+
+    if (/\s/.test(password)) {
+        errorMessage.textContent = 'Password cannot contain spaces.'
+        submitBtn.disabled = false
+        return
+    }
+
     try{
-        const res = await fetch('api/auth/register', {
+        const res = await fetch('/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(name, email, username, password)
+            body: JSON.stringify({name, email, username, password: password.trim()})
         })
 
         const data = await res.json()
