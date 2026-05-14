@@ -6,10 +6,10 @@ async function seedTable(){
 
     try{
         await db.exec(`BEGIN TRANSACTION`)
-        for(const{title, price,image, year,genre, stock, topSongs} of albums){
+        for(const{title, price,image,era, year,genre, stock, topSongs} of albums){
             await db.run(
-                `INSERT INTO albums(title, price,image, year, genre, stock, topSongs)
-                VALUES(?,?,?,?,?,?,?)`, [title, price, image, year, genre, stock,JSON.stringify(topSongs)]
+                `INSERT INTO albums(title, price,image,era, year, genre, stock, topSongs)
+                VALUES(?,?,?,?,?,?,?, ?)`, [title, price, image, era, year, genre, stock,JSON.stringify(topSongs)]
             )
         }
         await db.exec(`COMMIT`)

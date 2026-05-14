@@ -10,6 +10,7 @@ async function createTable(){
             title  TEXT NOT NULL,
             price FLOAT NOT NULL,
             image TEXT NOT NULL,
+            era TEXT NOT NULL,
             year INTEGER,
             genre TEXT,
             stock INTEGER,
