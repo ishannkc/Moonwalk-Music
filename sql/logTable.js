@@ -1,26 +1,24 @@
-import { getDBConnection } from "../db/db.js"
+import { getDBConnection } from '../db/db.js'
 
-async function viewAllProducts() {
-    const db = await getDBConnection()
+async function logTable() {
+  const db = await getDBConnection()
+
+  const tableName = 'users'
 
   try { 
-    const products = await db.all('SELECT * FROM albums')
-    // Neater table display
-    const displayItems = products.map(({ id, title, price,era, year,genre, stock, topSongs }) => {
-      let songs = topSongs
-      try{
-        songs = JSON.parse(topSongs).join(' | ')
-      } catch(err){
-          console.log('Error parsing topSongs: ', err.message)
-      }
-      return { id, title, price,era, year,genre, stock, topSongs: songs }
-    })
-    console.table(displayItems)
+
+    const table = await db.all(`SELECT * FROM ${tableName}`)
+    console.table(table)
+
   } catch (err) {
-    console.error('Error fetching products:', err.message)
+
+    console.error('Error fetching table:', err.message)
+
   } finally {
+
     await db.close()
+
   }
 }
 
-viewAllProducts()
+logTable()
