@@ -2,7 +2,7 @@
 
 ![MoonWalk Music preview](public/images/preview.jpeg)
 
-MoonWalk Music is a lightweight, full-stack tribute to the artistry of Michael Jackson. It delivers a simple album gallery and store experience with a Node.js backend and a clean, minimal frontend.
+MoonWalk Music is a lightweight, full-stack tribute to the artistry of Michael Jackson. It delivers a simple album gallery and store experience with a Express.js backend and a clean, minimal frontend.
 
 ## Featured Albums
 
