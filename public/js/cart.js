@@ -1,37 +1,34 @@
-// ===== Check if user is signed in =====
-export async function checkAuth() {
-  try {
-    const res = await fetch('/api/auth/me')
+import { logout } from './logout.js'
+import { checkAuth, renderGreeting, showHideMenuItems } from './authUI.js'
+import { loadCart, removeItem, removeAll } from './cartService.js'
 
-    if (!res.ok) {
-      console.warn('Unexpected response:', res.status)
-      return false
-    } 
-  
-    const user = await res.json()
-    if (!user.isLoggedIn) {
-      return false
-    }
-    return user.name
+const dom = {
+  checkoutBtn: document.getElementById('checkout-btn'),
+  userMessage: document.getElementById('user-message'),
+  cartList: document.getElementById('cart-list'),
+  cartTotal: document.getElementById('cart-total')
+}
 
-  } catch (err) {
-    console.log(err, 'Auth check failed')
-    return false 
+document.getElementById('logout-btn')?.addEventListener('click', logout)
+
+dom.cartList?.addEventListener('click', event => {
+  if (event.target.matches('.remove-btn')) {
+    removeItem(event.target.dataset.id, dom)
   }
+})
+
+dom.checkoutBtn?.addEventListener('click', () => {
+  removeAll(dom)
+  if (dom.userMessage) dom.userMessage.textContent = 'Your order has been sent for processing.'
+  dom.checkoutBtn.classList.add('visually-hidden')
+  dom.cartTotal.classList.add('visually-hidden')
+})
+
+async function init() {
+  loadCart(dom)
+  const name = await checkAuth()
+  renderGreeting(name)
+  showHideMenuItems(name)
 }
 
-// ===== Greet user or guest =====
-
-export function renderGreeting(name) {
-  const user = name ? name : 'Guest'
-  document.getElementById('greeting').textContent = `Welcome, ${user}!`
-}
-
-// ===== Only display logout button if logged in, else display log in/sign in options =====
-
-export function showHideMenuItems(name) {
-  const isLoggedIn = name
-  document.getElementById('login').style.display = isLoggedIn ? 'none' : 'inline'
-  document.getElementById('signup').style.display = isLoggedIn ? 'none' : 'inline'
-  document.getElementById('logout-btn').style.display = isLoggedIn ? 'inline' : 'none'
-}
+init()
