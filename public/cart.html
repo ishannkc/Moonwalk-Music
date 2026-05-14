@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Your Cart — MoonWalk Music</title>
+</head>
+<body>
+
+  <div class="stage-lights">
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+  </div>
+
+  <div class="top-banner" id="top-banner">
+    <p id="greeting" class="top-banner-greeting"></p>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="header-menu" aria-label="Main menu">
+      <a href="/login.html" id="login">Log in</a>
+      <a href="/signup.html" id="signup">Sign up</a>
+      <button class="main-btn" id="logout-btn">Log out</button>
+    </nav>
+  </div>
+
+  <header class="page-header">
+    <a href="/" class="logo-link">
+      <div class="logo-mark">
+        <div class="hat-brim"></div>
+        <div class="hat-crown"></div>
+        <div class="hat-band"></div>
+      </div>
+    </a>
+    <div class="header-text">
+      <p class="pre-title">MoonWalk Music</p>
+      <h1 class="page-title">Your <span class="accent-word">Cart</span></h1>
+    </div>
+  </header>
+
+  <main class="cart-main">
+    <div class="cart-layout">
+
+      <section class="cart-items-section">
+        <div class="cart-section-header">
+          <span class="cart-section-label">Albums</span>
+          <span class="cart-count" id="cart-count"></span>
+        </div>
+        <ul id="cart-list" class="cart-list"></ul>
+        <p id="user-message" class="user-message"></p>
+      </section>
+
+      <aside class="cart-summary">
+        <div class="summary-inner">
+          <h2 class="summary-title">Order Summary</h2>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span class="summary-free">Free</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row summary-total-row">
+            <span>Total</span>
+            <span id="cart-total" class="summary-total-amount">$0.00</span>
+          </div>
+          <button class="main-btn checkout-btn" id="checkout-btn">
+            Proceed to Checkout
+          </button>
+          <a href="/" class="continue-link">← Continue browsing</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MoonWalk Music</div>
+      <p class="footer-copy">© MoonWalk Music · Dedicated to Michael Jackson</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js" type="module"></script>
+  <script src="js/cart.js" type="module"></script>
+</body>
+</html>

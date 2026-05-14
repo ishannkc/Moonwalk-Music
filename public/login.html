@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Log In — MoonWalk Music</title>
+</head>
+<body>
+
+  <div class="stage-lights">
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+  </div>
+
+  <div class="top-banner" id="top-banner">
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="header-menu" aria-label="Main menu">
+      <a href="/login.html" aria-current="page">Log in</a>
+      <a href="/signup.html">Sign up</a>
+    </nav>
+  </div>
+
+  <main class="auth-main">
+    <div class="auth-brand">
+      <a href="/" class="logo-link">
+        <div class="logo-mark logo-mark--large">
+          <div class="hat-brim"></div>
+          <div class="hat-crown"></div>
+          <div class="hat-band"></div>
+        </div>
+      </a>
+      <p class="auth-brand-name">MoonWalk Music</p>
+      <p class="auth-brand-sub">Every record. Every era. Every hit.</p>
+    </div>
+
+    <form class="auth-form" id="signin-form" autocomplete="off">
+      <div class="auth-form-inner">
+        <h1 class="auth-title">Welcome <span class="accent-word">Back</span></h1>
+        <p class="auth-subtitle">Sign in to your account</p>
+
+        <div class="field-group">
+          <label for="signin-username">Username</label>
+          <input type="text" id="signin-username" name="username" placeholder="your username" required />
+        </div>
+
+        <div class="field-group">
+          <label for="signin-password">Password</label>
+          <input type="password" id="signin-password" name="password" placeholder="••••••••" required />
+        </div>
+
+        <button type="submit" class="form-btn">Log In</button>
+        <p class="auth-switch">No account? <a href="/signup.html" class="sign-link">Sign up here</a>.</p>
+        <p id="error-message" class="error"></p>
+      </div>
+    </form>
+  </main>
+
+  <script src="js/menu.js" type="module"></script>
+  <script src="js/login.js" type="module"></script>
+</body>
+</html>

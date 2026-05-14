@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Sign Up — MoonWalk Music</title>
+</head>
+<body>
+
+  <div class="stage-lights">
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+  </div>
+
+  <div class="top-banner" id="top-banner">
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="header-menu" aria-label="Main menu">
+      <a href="/login.html">Log in</a>
+      <a href="/signup.html" aria-current="page">Sign up</a>
+    </nav>
+  </div>
+
+  <main class="auth-main">
+    <div class="auth-brand">
+      <a href="/" class="logo-link">
+        <div class="logo-mark logo-mark--large">
+          <div class="hat-brim"></div>
+          <div class="hat-crown"></div>
+          <div class="hat-band"></div>
+        </div>
+      </a>
+      <p class="auth-brand-name">MoonWalk Music</p>
+      <p class="auth-brand-sub">Every record. Every era. Every hit.</p>
+    </div>
+
+    <form class="auth-form" id="signup-form" autocomplete="off">
+      <div class="auth-form-inner">
+        <h1 class="auth-title">Join the <span class="accent-word">Club</span></h1>
+        <p class="auth-subtitle">Create your account</p>
+
+        <div class="field-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" name="name" placeholder="Michael Jackson" required />
+        </div>
+
+        <div class="field-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field-group">
+          <label for="signup-username">Username</label>
+          <input
+            type="text"
+            id="signup-username"
+            name="username"
+            placeholder="smooth_criminal"
+            pattern="^[a-zA-Z0-9_-]{1,20}$"
+            title="1–20 characters: letters, numbers, underscores or hyphens only."
+            required
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" name="password" placeholder="••••••••" required />
+        </div>
+
+        <button type="submit" class="form-btn">Create Account</button>
+        <p class="auth-switch">Already registered? <a href="/login.html" class="sign-link">Sign in here</a>.</p>
+        <p id="error-message" class="error"></p>
+      </div>
+    </form>
+  </main>
+
+  <script src="js/menu.js" type="module"></script>
+  <script src="js/signup.js" type="module"></script>
+</body>
+</html>
