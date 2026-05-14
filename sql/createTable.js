@@ -1,6 +1,3 @@
-import sqlite3 from 'sqlite3'
-import {open} from 'sqlite'
-import path from 'node:path'
 import { getDBConnection } from '../db/db.js'
 
 async function createTable(){
@@ -16,7 +13,7 @@ async function createTable(){
             year INTEGER,
             genre TEXT,
             stock INTEGER,
-            top_songs TEXT
+            topSongs TEXT
             )
         `)
 
