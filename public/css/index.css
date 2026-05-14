@@ -197,8 +197,8 @@ header {
   z-index: 1;
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  padding: 5rem 4rem 4rem;
+  gap: 1.5rem;
+  padding: 2rem 4rem;
   overflow: hidden;
 }
 
@@ -272,7 +272,7 @@ header::after {
 
 h1 {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: clamp(2.5rem, 6vw, 5rem);
   line-height: 0.92;
   letter-spacing: 0.02em;
   color: var(--white);
@@ -600,4 +600,407 @@ footer {
 
 @media (max-width: 480px) {
   .products { grid-template-columns: 1fr; }
+}
+
+.page-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 4rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.page-title .accent-word {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--gold);
+}
+
+/* ─── Cart Page ─────────────────────────────────────────── */
+.cart-main {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 4rem;
+  min-height: 60vh;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  align-items: start;
+  max-width: 1100px;
+}
+
+.cart-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cart-count {
+  font-size: 0.75rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.cart-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--deep);
+  transition: background var(--transition);
+}
+
+.cart-item:hover { background: var(--panel); }
+
+.cart-item img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.cart-item-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.cart-item-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.cart-item-price {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+.cart-item-remove {
+  display: block;
+  margin-top: 0.4rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: right;
+  transition: color var(--transition);
+}
+.cart-item-remove:hover { color: var(--accent); }
+
+.user-message {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.cart-summary {
+  position: sticky;
+  top: 80px;
+}
+
+.summary-inner {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.summary-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.summary-free {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4caf76;
+}
+
+.summary-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.25rem 0;
+}
+
+.summary-total-row {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.summary-total-amount {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+
+.continue-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color var(--transition);
+}
+.continue-link:hover { color: var(--white); }
+
+/* ─── Auth Pages (login + signup) ───────────────────────── */
+.auth-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 54px);
+  padding: 3rem 1.5rem;
+  gap: 2.5rem;
+}
+
+.auth-brand {
+  text-align: center;
+}
+
+.auth-brand-name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.auth-brand-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+  letter-spacing: 0.06em;
+}
+
+.logo-mark--large {
+  width: 90px;
+  height: 104px;
+  margin: 0 auto;
+}
+
+.logo-mark--large .hat-crown {
+  width: 60px;
+  height: 68px;
+  bottom: 22px;
+}
+
+.logo-mark--large .hat-brim {
+  width: 90px;
+  height: 13px;
+  bottom: 12px;
+}
+
+.logo-mark--large .hat-band {
+  width: 60px;
+  height: 10px;
+  bottom: 36px;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-form-inner {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+}
+
+.auth-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.auth-title .accent-word {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--gold);
+}
+
+.auth-subtitle {
+  font-size: 0.82rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.field-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field-group input {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color var(--transition);
+  width: 100%;
+}
+
+.field-group input:focus { border-color: var(--gold); }
+.field-group input::placeholder { color: var(--border); }
+
+.form-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.form-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.auth-switch {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.sign-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+.sign-link:hover { color: var(--gold-light); }
+
+.error {
+  color: var(--accent);
+  font-size: 0.82rem;
+  margin-top: 0.75rem;
+  min-height: 1.2em;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .cart-main { padding: 2rem 1.5rem; }
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cart-summary { position: static; }
+
+  .page-header { padding: 2rem 1.5rem; }
+
+  .auth-form-inner { padding: 2rem 1.25rem; }
 }
