@@ -9,10 +9,9 @@ export function renderProducts(products) {
       <div class="product-card">
         <img src="./images/${album.image}" alt="${album.title}">
         <h2>${album.title}</h2>
-        <h3>${album.artist}</h3>
         <p>$${album.price}</p>
         <button class="main-btn add-btn" data-id="${album.id}">Add to Cart</button>
-        <p class="genre-label">${album.genre}</p>
+        <p class="genre-label">${album.topSongs}</p>
       </div>
     `
   }).join('')

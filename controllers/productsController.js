@@ -14,3 +14,28 @@ export async function getAlbums(req, res){
         
     }
 }
+
+export async function getProducts(req, res){
+    try{
+        const db  = await getDBConnection()
+
+        let query = `SELECT * FROM albums`
+        let params = []
+
+        const {album, search} = req.query
+
+        if(album){
+            album +=' WHERE title = ?'
+            params.push(album)
+        } else if(search){
+            query += '  WHERE title LIKE ? OR genre LIKE ? OR topSongs ?'
+            const searchPattern = `%${search}%`
+            params.push(searchPattern, searchPattern, searchPattern)
+        }
+
+        const products = await db.all(query, params)
+        res.json(products)
+    } catch (err){
+            res.status(500).json({error: 'Failed to fetch products', details: err.message})
+    }
+}
