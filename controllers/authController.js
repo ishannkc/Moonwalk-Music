@@ -53,7 +53,7 @@ if (password.trim().length < 8) {
             )
             console.log(result)
 
-            
+                req.session.userId = result.lastID
 
             res.status(201).json('User registered')
 
@@ -62,4 +62,42 @@ if (password.trim().length < 8) {
         console.error('Registration error:', err.message);
     res.status(500).json({ error: 'Registration failed. Please try again.' })
      }
+}
+
+export async function loginUser(req,res){
+    let{username, password} = req.body
+    
+     if (!username || !password) {
+    return res.status(400).json({ error: 'All fields are required' } )
+  }
+
+  username = username.trim()
+
+  try{
+        const db = await getDBConnection()
+
+        const userExists = await db.get(`
+                SELECT * FROM users
+                WHERE username =?
+            `,[username]
+        )
+
+        if(!userExists){
+            return res.status(401).json({error: `Invalid credentials or User doesn't exist`})
+        }
+
+        const isValidPw = await bcrypt.compare(password, userExists.password)
+
+        if(!isValidPw){
+             return res.status(401).json({ error: 'Invalid password'})
+        }
+
+        req.session.userId = userExists.id
+        res.json({message: 'Logged in'})
+        console.log('User logged in')
+
+  } catch(err){
+    console.error('Login error:', err.message)
+    res.status(500).json({ error: 'Login failed. Please try again.' })
+  }
 }
