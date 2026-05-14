@@ -41,8 +41,8 @@ document.querySelector('form').addEventListener('submit', (e) => {
 })
 
 document.getElementById('genre-select').addEventListener('change', async (e) => {
-  const genre = e.target.value
-  const products = await getProducts(genre ? { genre } : {})
+  const album = e.target.value
+  const products = await getProducts(album ? { album } : {})
   renderProducts(products)
 })
 
