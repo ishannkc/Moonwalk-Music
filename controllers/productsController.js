@@ -1,16 +1,16 @@
 import { getDBConnection } from '../db/db.js'
 
-export async function getAlbums(req, res){
+export async function getEras(req, res){
     try{
             const db = await getDBConnection()
 
-            const albumRows = await db.all (`SELECT DISTINCT title FROM albums`)
-            const albums = albumRows.map(row=>row.title)
-            res.json(albums)
-            // console.log('album got')
+            const eraRows = await db.all (`SELECT DISTINCT era FROM albums`)
+            const eras = eraRows.map(row=>row.era)
+            res.json(eras)
+            // console.log('era got')
     } catch(err){
-        console.log('failed to get albums: ', err.message)
-        res.status(500).json({error: 'Failed to fetch albums', details: err.message})
+        console.log('failed to get eras: ', err.message)
+        res.status(500).json({error: 'Failed to fetch eras', details: err.message})
         
     }
 }
@@ -22,15 +22,15 @@ export async function getProducts(req, res){
         let query = `SELECT * FROM albums`
         let params = []
 
-        const {album, search} = req.query
+        const {era, search} = req.query
 
-        if(album){
-            query +=' WHERE title = ?'
-            params.push(album)
+        if(era){
+            query +=' WHERE era = ?'
+            params.push(era)
         } else if(search){
-            query += '  WHERE title LIKE ? OR genre LIKE ? OR topSongs LIKE?'
+            query += '  WHERE title LIKE ? OR genre LIKE ? OR topSongs LIKE? OR era LIKE?'
             const searchPattern = `%${search}%`
-            params.push(searchPattern, searchPattern, searchPattern)
+            params.push(searchPattern, searchPattern, searchPattern, searchPattern)
         }
 
         const products = await db.all(query, params)

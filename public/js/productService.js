@@ -8,15 +8,15 @@ export async function getProducts(filters = {}) {
 
 // ===== Populate the genre dropdown =====
 
-export async function populateAlbumSelect() {
-  const res = await fetch('/api/products/albums')
-  const albums = await res.json() // expects an array of genres as strings: ['rock', 'pop', ...]
+export async function populateEraSelect() {
+  const res = await fetch('/api/products/eras')
+  const eras = await res.json() // expects an array of eras as strings
   const select = document.getElementById('genre-select')
 
-  albums.forEach(album => {
+  eras.forEach(era => {
     const option = document.createElement('option')
-    option.value = album
-    option.textContent = album
+    option.value = era
+    option.textContent = era
     select.appendChild(option)
   })
 }
