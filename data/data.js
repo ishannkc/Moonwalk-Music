@@ -1,7 +1,6 @@
 export const albums = [
     {
         title: 'Off the Wall',
-        artist: 'Michael Jackson',
         price: 19.99,
         image: 'off-the-wall.png',
         year: 1979,
@@ -16,7 +15,6 @@ export const albums = [
     },
     {
         title: 'Thriller',
-        artist: 'Michael Jackson',
         price: 24.99,
         image: 'thriller.png',
         year: 1982,
@@ -31,7 +29,6 @@ export const albums = [
     },
     {
         title: 'Bad',
-        artist: 'Michael Jackson',
         price: 21.99,
         image: 'bad.png',
         year: 1987,
@@ -46,7 +43,6 @@ export const albums = [
     },
     {
         title: 'Dangerous',
-        artist: 'Michael Jackson',
         price: 21.99,
         image: 'dangerous.png',
         year: 1991,
@@ -61,7 +57,6 @@ export const albums = [
     },
     {
         title: 'HIStory: Past, Present and Future, Book I',
-        artist: 'Michael Jackson',
         price: 26.99,
         image: 'history.png',
         year: 1995,
@@ -76,17 +71,16 @@ export const albums = [
     },
     {
         title: 'Invincible',
-        artist: 'Michael Jackson',
         price: 19.99,
         image: 'invincible.png',
         year: 2001,
         era: 'Late Career (2000s)',
         genre: 'R&B / Pop',
         stock: 50,
-        topSongs: [
-            'You Rock My World',
-            'Butterflies',
-            'Break of Dawn'
-        ]
+            topSongs: [
+                'You Rock My World',
+                'Butterflies',
+                'Break of Dawn'
+            ]
     }
 ]
