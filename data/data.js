@@ -2,7 +2,7 @@ export const albums = [
     {
         title: 'Off the Wall',
         price: 19.99,
-        image: 'off-the-wall.png',
+        image: 'off-the-wall.jpg',
         year: 1979,
         era: 'Early Solo (1970s)',
         genre: 'Disco / Funk / Soul',
@@ -16,7 +16,7 @@ export const albums = [
     {
         title: 'Thriller',
         price: 24.99,
-        image: 'thriller.png',
+        image: 'thriller.jpg',
         year: 1982,
         era: 'Epic Era (1980s)',
         genre: 'Pop / R&B / Rock',
@@ -30,7 +30,7 @@ export const albums = [
     {
         title: 'Bad',
         price: 21.99,
-        image: 'bad.png',
+        image: 'bad.jpg',
         year: 1987,
         era: 'Epic Era (1980s)',
         genre: 'Pop / R&B / Funk',
@@ -44,7 +44,7 @@ export const albums = [
     {
         title: 'Dangerous',
         price: 21.99,
-        image: 'dangerous.png',
+        image: 'dangerous.jpg',
         year: 1991,
         era: 'New Jack Era (1990s)',
         genre: 'New Jack Swing / R&B',
@@ -58,7 +58,7 @@ export const albums = [
     {
         title: 'HIStory: Past, Present and Future, Book I',
         price: 26.99,
-        image: 'history.png',
+        image: 'history.jpg',
         year: 1995,
         era: 'New Jack Era (1990s)',
         genre: 'Pop / R&B / Gospel',
@@ -72,7 +72,7 @@ export const albums = [
     {
         title: 'Invincible',
         price: 19.99,
-        image: 'invincible.png',
+        image: 'invincible.jpg',
         year: 2001,
         era: 'Late Career (2000s)',
         genre: 'R&B / Pop',
