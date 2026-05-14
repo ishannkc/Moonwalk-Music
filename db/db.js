@@ -5,6 +5,7 @@ import path from 'node:path'
 export async function getDBConnection(){
     const dbPath = path.join('database.db')
 
+    console.log('connected to database')
     return open({
         filename: dbPath,
         driver:sqlite3.Database
