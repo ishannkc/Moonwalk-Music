@@ -40,4 +40,25 @@ async function createTableUsers(){
         await db.close()
         console.log('Table Users created')
 }
-createTableUsers()
+// createTableUsers()
+
+async function createCartItems(){
+    const db = await getDBConnection()
+
+    await db.exec(`
+                CREATE TABLE IF NOT EXISTS cart_items(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                album_id INTEGER NOT NULL,
+                quantity INTEGER NOT NULL DEFAULT 1,
+                FOREIGN KEY(user_id) REFERENCES users(id),
+                FOREIGN KEY(album_id) REFERENCES albums(id)
+    );
+        
+        `)
+
+        await db.close()
+        console.log('Cart Items Table Created')
+}
+
+createCartItems()
