@@ -4,6 +4,8 @@ import { productsRouter } from './routes/products.js'
 import { authRouter } from './routes/auth.js'
 import session from 'express-session'
 import { meRouter } from './routes/me.js'
+import { addtoCart } from './controllers/cartController.js'
+import { cartRouter } from './routes/cart.js'
 
 const app = express()
 const PORT = 8000
@@ -26,6 +28,7 @@ app.use(express.static('public'))
 app.use('/api/products', productsRouter)
 app.use('/api/auth/me', meRouter)
 app.use('/api/auth', authRouter)
+app.use('/api/cart', cartRouter)
 
 app.listen(PORT, ()=>{
     console.log(`Server running at http://localhost:${PORT}`)

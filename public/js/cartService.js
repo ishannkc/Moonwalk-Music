@@ -34,12 +34,12 @@ export function addBtnListeners() {
       const card = btn.closest('.product-card')
       if (!card) return
 
-      const productId = Number(btn.dataset.id)
-      if (Number.isNaN(productId)) return
+      const albumId = Number(btn.dataset.id)
+      if (Number.isNaN(albumId)) return
 
       const result = await requestJson('/api/cart/add', {
         method: 'POST',
-        body: JSON.stringify({ productId })
+        body: JSON.stringify({ albumId })
       })
 
       if (!result || !result.ok) {
