@@ -109,9 +109,3 @@ export async function removeItem(id, dom) {
   await loadCart(dom)
   await updateCartIcon()
 }
-
-export async function removeAll(dom) {
-  await requestJson('/api/cart/all', { method: 'DELETE' })
-  await loadCart(dom)
-  await updateCartIcon()
-}
