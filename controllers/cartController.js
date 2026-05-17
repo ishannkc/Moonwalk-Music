@@ -48,3 +48,17 @@ export async function getCartCount(req,res){
 
     res.json({totalItems: result.totalItems || 0})
 }
+
+export  async function getAll(req,res){
+    const db = await getDBConnection()
+
+    const items = await db.all(`
+        SELECT ci.id AS cartItemId, ci.quantity, p.title, p.price, p.image FROM cart_items ci
+        JOIN albums p ON P.id = ci.album_id 
+        WHERE ci.user_id= ?
+        `,[req.session.userId]
+    )
+
+    res.json({items: items
+    })
+}
